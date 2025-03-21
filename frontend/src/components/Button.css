@@ -1,0 +1,36 @@
+/* Abgerundeter Button, jetzt speziell auch für den Login-Tab */
+.button {
+  background-color: #333;
+  border: 2px solid #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  border-radius: 8px;
+}
+
+.button:hover {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #333;
+}
+
+.button_navbar {
+  background-color: #fff;
+  border: 2px solid #333;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  border-radius: 8px;
+  text-decoration: none; /* Entfernt die Unterstreichung */
+
+}
+
+.button_navbar:hover {
+  background-color: #333;
+  border-color: #333;
+  color: #ccc;
+}

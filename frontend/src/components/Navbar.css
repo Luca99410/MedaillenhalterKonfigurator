@@ -1,0 +1,75 @@
+.navbar {
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Neuer Container, der als Positionierungsbasis dient */
+.navbar-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Basis-Styles für alle Nav-Links */
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover-Effekt: Text etwas vergrößern */
+.nav-link:hover {
+  transform: scale(1.1);
+}
+
+/* Entferne die bisherige Pseudo-Unterstreichung */
+.nav-link::after {
+  content: none;
+}
+
+/* Der animierte Indikator */
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: grey;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+.navbar-cart {
+  position: relative;
+}
+
+.cart-icon {
+  width: 24px;
+  height: auto;
+}
+
+.nav-cart-count {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+}

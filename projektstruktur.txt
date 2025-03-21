@@ -1,0 +1,57 @@
+medal-project/
+├── .git/
+├── frontend/
+│   ├── node_modules/
+│   ├── public/
+│   │   ├── winner.jpg                # Bilder
+│   │   ├── index.html
+│   │   └── robots.txt
+│   ├── src/
+│   │   ├── img/                      # weitere Bilder
+│   │   ├── components/
+│   │   │   ├── Home.jsx              # Startseite mit winner.jpg und großem, mehrzeiligem Titel
+│   │   │   ├── Navbar.jsx            # Navigation (Taskleiste)
+│   │   │   ├── Navbar.css            
+│   │   │   ├── Configurator.jsx      # Medaillenhalter-Konfigurator mit dynamischem Hintergrund (running.jpg/cycling.jpg) und weißem Text
+│   │   │   ├── Configurator.css      # Styles für den Konfigurator (running.jpg/cycling.jpg) und weißem Text
+│   │   │   ├── MedalHolder.jsx       # Komponente für das SVG des Medaillenhalters
+│   │   │   ├── About.jsx             # About-Seite über Hintergrunde des Projektes
+│   │   │   ├── About.css       
+│   │   │   ├── Warenkorb.jsx         # Warenkorb und Bestellung
+│   │   │   ├── Warenkorb.css       
+│   │   │   ├── Kontakformular.jsx    # Kontakformular-Komponente für Warenkob       
+│   │   │   ├── Kontakformular.css       
+│   │   │   ├── Login.jsx             # Versuch mit WebAuthn, konnte nicht getestet werden auf Localhost
+│   │   │   ├── Login.jsx       
+│   │   │   ├── Profil.jsx            # Versuch für eine Profilseite, konnte nicht getestet werden auf Localhost
+│   │   │   ├── Profil.css       
+│   │   │   └── Button.css            # Einheitliches Button-Design
+│   │   ├── contexts/
+│   │   │   ├── CartContext.jsx       # Zustandsverwaltung der im Warenkorb befindlichen Produkte
+│   │   │   ├── ContactContex.jsx     # Zustandsverwaltung der Kontaktinformationen
+│   │   ├── App.js                    # Routing, Import von App.css
+│   │   ├── App.css                   # Globale Styles, inkl. .bg-image Klasse
+│   │   └── index.js
+│   └── package.json
+│   
+├── backend/
+│   ├── Buchstaben/
+│   │   ├── A.dxf                     # A-Z 24 Gross-Buchstaben jeweils in .dxf von Font umgewandelt
+│   │   ├── letter_widths.txt         # Informationen über breite der Buchstaben als dict in .txt
+│   │   └── sf-florencesans-sc-exp.ttf        # verwendete Schriftart
+│   ├── Warenkorb/
+│   │   ├── DXF/
+│   │   │   └── TEXT_Design_AnzahlEbenen.dxf  # Generierter Medaillenhalter als .dxf
+│   │   ├── PNG/
+│   │   │   └── TEXT_Design_AnzahlEbenen.png  # Generierter Medaillenhalter als .png
+│   │   └──  SVG/
+│   │       └── TEXT_Design_AnzahlEbenen.svg  # Generierter Medaillenhalter als .svg
+│   ├── extern/                               # repo von Webauthn
+│   ├── venv/                        
+│   ├── main.py                               # backend server
+│   ├── generate_buchstaben_dxf.py            # generiert Buchstaben als einzelne .dxf aus einer Font   
+│   ├── generate_medaillenhalter_dxf_png_svg.py     # generiert Medaillenhalter als .dxf, .png und .svg                   
+│   ├── MedaillenDatenbank.db                 # Datenbank für Bestellungen mit Information über Kunde und konfiguriertes Produkt                   
+│   └── requirements.txt             
+│   
+└── README.md                        

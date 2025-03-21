@@ -1,0 +1,30 @@
+/* frontend/src/components/Configurator.css */
+.configurator-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .configurator-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .configurator-form {
+    margin-bottom: 20px;
+  }
+  
+  .configurator-form label {
+    margin-right: 10px;
+  }
+  
+  .configurator-form input[type="text"],
+  .configurator-form input[type="number"],
+  .configurator-form select {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .configurator-form input[type="range"] {
+    margin-top: 5px;
+  }
+  

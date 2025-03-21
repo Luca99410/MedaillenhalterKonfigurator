@@ -1,0 +1,84 @@
+/* frontend/src/components/Kontaktformular.css */
+.kontaktformular {
+    /* Rahmen entfernt, max. Breite gesetzt, zentriert */
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fff; 
+    border: none;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    margin-top: 0;
+    font-weight: normal;
+  }
+  
+  /* Gemeinsames Styling für alle Eingabefelder */
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input,
+  select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  /* Platzhalter in hellgrau */
+  ::placeholder {
+    color: #aaa;
+  }
+  
+  /* Fehlerzustand */
+  input.error,
+  select.error {
+    border-color: red;
+  }
+  
+  .error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Damit Hausnummer unterhalb von Straße liegt */
+  .street-house {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Checkbox Gruppe */
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .checkbox-group label {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  
+  /* Button Styling (optional, falls du es nicht in Button.css hast) */
+  .button {
+    background-color: #333;
+    border: 2px solid #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    border-radius: 8px;
+  }
+  
+  .button:hover {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #333;
+  }
+  
