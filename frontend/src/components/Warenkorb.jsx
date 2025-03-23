@@ -21,8 +21,9 @@ const Warenkorb = () => {
     const payload = {
       items: cartItems,
       lieferadresse: deliveryAddress,
-      rechnungsadresse: invoiceAddress
+      rechnungsadresse: invoiceAddress,
     };
+    
 
     try {
       const response = await fetch('http://localhost:8000/purchase', {
@@ -41,7 +42,7 @@ const Warenkorb = () => {
   };
 
   const getImageUrl = (item) =>
-    `http://localhost:8000/get_image_url?text=${encodeURIComponent(item.name)}&design=${encodeURIComponent(item.design)}&anzahl_ebenen=${item.barCount}`;
+    `http://localhost:8000/get_image_url?text=${encodeURIComponent(item.name)}&design=${encodeURIComponent(item.design)}&anzahl_ebenen=${item.barCount}&gesamtbreite=${item.width}`;
 
       return (
         <div style={{ padding: '10px' }}>

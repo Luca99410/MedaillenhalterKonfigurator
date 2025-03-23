@@ -65,9 +65,9 @@ const Configurator = () => {
     await fetch('http://localhost:8000/generate_medaillenhalter', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: name, design, anzahl_ebenen: barCount })
+      body: JSON.stringify({ text: name, design, anzahl_ebenen: barCount, user_breite: width })
     });
-    addToCart({ design, name, width, barCount, price });
+    addToCart({ design, name, width, barCount, price});
   };
 
   const containerStyle = {

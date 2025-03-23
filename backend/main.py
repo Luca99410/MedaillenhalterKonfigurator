@@ -190,17 +190,18 @@ async def generate_handler(req: MedaillenhalterRequest):
         benennung_nach_konfiguration=True,
         design=req.design,
         text=req.text,
-        anzahl_ebenen=req.anzahl_ebenen
+        anzahl_ebenen=req.anzahl_ebenen,
+        user_breite=req.user_breite
     )
     return {"status": "generated"}
 
 @app.get("/get_image_url")
-async def get_image_url(text: str, design: str, anzahl_ebenen: int):
+async def get_image_url(text: str, design: str, anzahl_ebenen: int, gesamtbreite:int):
     import os
     import urllib.parse
 
     id = f"{text}_{design}_{anzahl_ebenen}"
-    image_path = os.path.join("Warenkorb", "PNG", f"{id}.png")
+    image_path = os.path.join("Warenkorb", "PNG", f"{id}_{gesamtbreite}.png")
 
     if not os.path.exists(image_path):
         return {"error": "Bild nicht gefunden."}
@@ -223,8 +224,24 @@ async def purchase(purchase_request: PurchaseRequest):
             customer = result.scalars().first()
             if not customer:
                 customer = Customer(
-                    lieferadresse_email=purchase_request.lieferadresse.email,
-                    rechnungsadresse_email=purchase_request.rechnungsadresse.email,
+                    # Lieferadresse
+                    lieferadresse_gender = purchase_request.lieferadresse.gender,
+                    lieferadresse_firstName = purchase_request.lieferadresse.firstName,
+                    lieferadresse_lastName = purchase_request.lieferadresse.lastName,
+                    lieferadresse_email = purchase_request.lieferadresse.email,
+                    lieferadresse_street = purchase_request.lieferadresse.street,
+                    lieferadresse_houseNumber = purchase_request.lieferadresse.houseNumber,
+                    lieferadresse_postalCode = purchase_request.lieferadresse.postalCode,
+                    lieferadresse_city = purchase_request.lieferadresse.city,
+                    # Rechnungsadresse
+                    rechnungsadresse_gender = purchase_request.rechnungsadresse.gender,
+                    rechnungsadresse_firstName = purchase_request.rechnungsadresse.firstName,
+                    rechnungsadresse_lastName = purchase_request.rechnungsadresse.lastName,
+                    rechnungsadresse_email = purchase_request.rechnungsadresse.email,
+                    rechnungsadresse_street = purchase_request.rechnungsadresse.street,
+                    rechnungsadresse_houseNumber = purchase_request.rechnungsadresse.houseNumber,
+                    rechnungsadresse_postalCode = purchase_request.rechnungsadresse.postalCode,
+                    rechnungsadresse_city = purchase_request.rechnungsadresse.city
                 )
                 session.add(customer)
                 await session.flush()

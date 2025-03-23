@@ -14,7 +14,7 @@ cd backend
 (optional, derzeit nicht nötig! Das externe Modul für WebAuthn klonen)
 
 ```bash
-git clone https://github.com/duo-labs/py_webauthn.git backend/extern # optional, erstmal nicht nötig
+git clone https://github.com/duo-labs/py_webauthn.git backend/extern # manuell nötig für WebAuthn, wird bei dem Klonen diesen Repos nicht automatisch hinzugefügt
 ```
 
 ### 3. Virtuelle Umgebung aktivieren
@@ -61,5 +61,3 @@ npm install
 npm start
 ```
 Die App ist nun unter http://localhost:3000 im Browser erreichbar.
-
-# MedaillenhalterKonfigurator

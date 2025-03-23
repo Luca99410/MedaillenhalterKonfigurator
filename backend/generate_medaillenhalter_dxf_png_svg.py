@@ -112,7 +112,6 @@ def get_width_of_medaillenhalter(text, user_breite=0, bild_abstand=5, bild_leerz
     verlaengung = math.ceil(rohwert / 10) * 10 if rohwert > 0 else 0    # Gesamte Breite berechnen (hier als Beispiel: 20+90+100 plus Verlängerung)
     gesamtbreite = 20 + 90 + 100 + verlaengung
     mindestbreite = gesamtbreite
-
     if user_breite > gesamtbreite:
         gesamtbreite = user_breite
         rohwert = user_breite - (20 + 90 + 100)
@@ -129,15 +128,24 @@ def get_medaillenhalter(benennung_nach_konfiguration = False, zielordner = "Ware
     vorlagen_ordner = "./dxf_vorlagen"
     design_name = str(design) + ".dxf"
 
-    if benennung_nach_konfiguration:
-        id = str(text) + "_" + str(design) + "_" + str(anzahl_ebenen)
-    output_dxf = os.path.join(f"{zielordner}", "DXF", f"{id}.dxf")
-    output_png = os.path.join(f"{zielordner}", "PNG", f"{id}.png")
-    output_svg = os.path.join(f"{zielordner}", "SVG", f"{id}.svg")
-
-    vorlage_dateien = [f"{anzahl_ebenen}_{i}.dxf" for i in [1, 2, 3]]
     bild_abstand = 5
     bild_leerzeichen = 40
+
+    gesamtbreite, bild_width, verlaengung, letter_widths, _ = get_width_of_medaillenhalter(
+    text,
+    user_breite=user_breite,
+    bild_abstand=bild_abstand,
+    bild_leerzeichen=bild_leerzeichen
+    )
+
+    if benennung_nach_konfiguration:
+        id = str(text) + "_" + str(design) + "_" + str(anzahl_ebenen)
+    output_dxf = os.path.join(f"{zielordner}", "DXF", f"{id}_{gesamtbreite}.dxf")
+    output_png = os.path.join(f"{zielordner}", "PNG", f"{id}_{gesamtbreite}.png")
+    output_svg = os.path.join(f"{zielordner}", "SVG", f"{id}_{gesamtbreite}.svg")
+
+    vorlage_dateien = [f"{anzahl_ebenen}_{i}.dxf" for i in [1, 2, 3]]
+
     
     target = ezdxf.new("R2010")
     msp = target.modelspace()
@@ -149,12 +157,7 @@ def get_medaillenhalter(benennung_nach_konfiguration = False, zielordner = "Ware
         (-110, 0)   # Für 5_3.dxf
     ]
 
-    gesamtbreite, bild_width, verlaengung, letter_widths, _ = get_width_of_medaillenhalter(
-    text,
-    user_breite=user_breite,
-    bild_abstand=bild_abstand,
-    bild_leerzeichen=bild_leerzeichen
-    )
+
 
     if verlaengung > 9:
         vorlage_offsets[1] = (vorlage_offsets[1][0] - verlaengung / 4, 0)
