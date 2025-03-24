@@ -11,19 +11,17 @@ Wechsle in das Backend Verzeichnis:
 cd backend
 ```
 
-(optional, derzeit nicht nötig! Das externe Modul für WebAuthn klonen)
-
 ```bash
-git clone https://github.com/duo-labs/py_webauthn.git backend/extern # manuell nötig für WebAuthn, wird bei dem Klonen diesen Repos nicht automatisch hinzugefügt
+git clone https://github.com/duo-labs/py_webauthn.git extern # manuell nötig für WebAuthn, wird bei dem Klonen diesen Repos nicht automatisch hinzugefügt
 ```
 
-### 3. Abhängigkeiten installieren
-Jetzt die Abhängigkeiten installieren
+### 2. Virtuelle Umgebung erstellen:
+Virtuelle Umgebung erstellen
 ```bash
-pip install -r requirements.txt
+python -m venv venv     # (Linux/macOS/Windows)
 ```
-
-### 4. Virtuelle Umgebung aktivieren
+ 
+### 3. Virtuelle Umgebung aktivieren
 Virtuelle Umgebung aktivieren
 ```bash
 source venv/bin/activate     # (Linux/macOS)
@@ -31,6 +29,12 @@ source venv/bin/activate     # (Linux/macOS)
 oder
 ```bash
 .\venv\Scripts\activate      # (Windows)
+```
+
+### 4. Abhängigkeiten installieren
+Jetzt die Abhängigkeiten installieren
+```bash
+pip install -r requirements.txt
 ```
 
 ### 5. Server starten
