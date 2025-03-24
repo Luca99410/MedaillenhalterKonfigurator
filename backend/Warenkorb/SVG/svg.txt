@@ -1,0 +1,1 @@
+Hier werden SVG für den Warenkorb/Bestellungen erzeugt
